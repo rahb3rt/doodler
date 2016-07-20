@@ -40,6 +40,7 @@ void DrawingCanvas::onEnter()
     drawNode->setContentSize(visibleSize);
     
     setupTouchHandling();
+    setupMenus();
 }
 
 
@@ -82,7 +83,7 @@ void DrawingCanvas::clearPressed(Ref* pSender, ui::Widget::TouchEventType eEvent
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED)
     {
-        
+        drawNode->clear();
     }
 }
 
@@ -90,7 +91,7 @@ void DrawingCanvas::backPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED)
     {
-        
+        Director::getInstance()->popScene();
     }
 }
 
@@ -103,15 +104,15 @@ void DrawingCanvas::setupMenus(){
     drawNode->setContentSize(visibleSize);
     
     ui::Button* clearButton = ui::Button::create();
-    clearButton->setAnchorPoint(Vec2(1.0f, 1.0f));
+    clearButton->setAnchorPoint(Vec2(0.0f, 1.0f));
     clearButton->setPosition(Vec2(visibleSize.width, visibleSize.height));
     clearButton->loadTextures("clearButton.png", "clearButtonPressed.png");
     clearButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::clearPressed, this));
     this->addChild(clearButton);
     
     ui::Button* backButton = ui::Button::create();
-    backButton->setAnchorPoint(Vec2(0.0f, 1.0f));
-    backButton->setPosition(Vec2(0.35f, visibleSize.height));
+    backButton->setAnchorPoint(Vec2(1.0f, 1.0f));
+    backButton->setPosition(Vec2(visibleSize.width  , visibleSize.height));
     backButton->loadTextures("backButton.png", "backButtonPressed.png");
     backButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::backPressed, this));
     this->addChild(backButton);
