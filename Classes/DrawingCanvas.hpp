@@ -10,6 +10,7 @@
 #define DrawingCanvas_hpp
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class DrawingCanvas : public cocos2d::Node
 {
@@ -23,6 +24,9 @@ protected:
     bool init() override;
     void onEnter() override;
     void setupTouchHandling();
+    void setupMenus();
+    void backPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void clearPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif /* DrawingCanvas_hpp */

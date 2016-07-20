@@ -29,6 +29,7 @@ bool DrawingCanvas::init()
     return true;
 }
 
+
 void DrawingCanvas::onEnter()
 {
     Node::onEnter();
@@ -40,6 +41,8 @@ void DrawingCanvas::onEnter()
     
     setupTouchHandling();
 }
+
+
 
 void DrawingCanvas::setupTouchHandling()
 {
@@ -74,3 +77,46 @@ void DrawingCanvas::setupTouchHandling()
     
     
 }
+
+void DrawingCanvas::clearPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == ui::Widget::TouchEventType::ENDED)
+    {
+        
+    }
+}
+
+void DrawingCanvas::backPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == ui::Widget::TouchEventType::ENDED)
+    {
+        
+    }
+}
+
+
+void DrawingCanvas::setupMenus(){
+    
+    Size visibleSize = CCDirector::getInstance()->getVisibleSize();
+    
+    this->setContentSize(visibleSize);
+    drawNode->setContentSize(visibleSize);
+    
+    ui::Button* clearButton = ui::Button::create();
+    clearButton->setAnchorPoint(Vec2(1.0f, 1.0f));
+    clearButton->setPosition(Vec2(visibleSize.width, visibleSize.height));
+    clearButton->loadTextures("clearButton.png", "clearButtonPressed.png");
+    clearButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::clearPressed, this));
+    this->addChild(clearButton);
+    
+    ui::Button* backButton = ui::Button::create();
+    backButton->setAnchorPoint(Vec2(0.0f, 1.0f));
+    backButton->setPosition(Vec2(0.35f, visibleSize.height));
+    backButton->loadTextures("backButton.png", "backButtonPressed.png");
+    backButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::backPressed, this));
+    this->addChild(backButton);
+}
+
+
+
+
