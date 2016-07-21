@@ -134,7 +134,7 @@ void DrawingCanvas::setupMenus(){
     Node* colorButtonLayout = Node::create();
     colorButtonLayout->setContentSize(Size(visibleSize.width, visibleSize.height * 0.2f));
     colorButtonLayout->setAnchorPoint(Vec2(0.5f, 0.0f));
-    colorButtonLayout->setPosition(Vec2(visibleSize.width / 2.0f, 0.0f));
+    colorButtonLayout->setPosition(Vec2(visibleSize.width, 0.0f));
     this->addChild(colorButtonLayout);
     
     
@@ -142,9 +142,9 @@ void DrawingCanvas::setupMenus(){
     {
         ui::Button* colorButton = ui::Button::create();
         colorButton->setAnchorPoint(Vec2(0.5f, 0.0f));
-        colorButton->setPosition(Vec2(visibleSize.width * i * (1.0f/6.0f), 0.0f));
+        colorButton->setPosition(Vec2(visibleSize.width * i , 0.0f));
         colorButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-        colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+        //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
         colorButton->setColor(Color3B(COLOR_BLUE));
         colorButtonLayout->addChild(colorButton);
     }
