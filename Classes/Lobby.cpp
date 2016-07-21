@@ -8,6 +8,7 @@
 
 #include "Lobby.hpp"
 #include "DrawingCanvas.hpp"
+#include "Constants.h"
 
 using namespace cocos2d;
 
@@ -19,7 +20,7 @@ bool Lobby::init()
         return false;
     }
     
-    LayerColor* background = LayerColor::create(Color4B(255, 255, 255, 255));
+    LayerColor* background = LayerColor::create(Color4B(COLOR_WHITE));
     this->addChild(background);
     
     return true;

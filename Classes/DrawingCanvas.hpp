@@ -20,13 +20,19 @@ public:
 protected:
     cocos2d::DrawNode* drawNode;
     cocos2d::LayerColor* background;
+    cocos2d::Sprite* check;
+    cocos2d::Color4F selectedColor;
+
     
+
     bool init() override;
     void onEnter() override;
     void setupTouchHandling();
     void setupMenus();
     void backPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void clearPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void colorChangePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
 };
 
 #endif /* DrawingCanvas_hpp */
