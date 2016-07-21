@@ -138,20 +138,52 @@ void DrawingCanvas::setupMenus(){
     colorButtonLayout->setPosition(Vec2(visibleSize.width * 1.34f, 0.0f));
     this->addChild(colorButtonLayout);
     
-    for (int i = 1; i <= 5; ++i)
-    {
-        
-        
-        ui::Button* colorButton = ui::Button::create();
-        colorButton->setAnchorPoint(Vec2(0.5f, 0.0f));
-        colorButton->setPosition(Vec2(visibleSize.width * i * (1.0f/6.0f), 0.0f));
-        colorButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-        //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
-        colorButton->setColor(Color3B(COLOR_BLUE));
-        colorButtonLayout->addChild(colorButton);
-    }
+    
+    ui::Button* redButton = ui::Button::create();
+    redButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+    redButton->setPosition(Vec2(visibleSize.width * 1 * (1.0f/6.0f), 0.0f));
+    redButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    redButton->setColor(Color3B(COLOR_RED));
+    colorButtonLayout->addChild(redButton);
     
     
+    ui::Button* yellowButton = ui::Button::create();
+    yellowButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+    yellowButton->setPosition(Vec2(visibleSize.width * 2 * (1.0f/6.0f), 0.0f));
+    yellowButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    yellowButton->setColor(Color3B(COLOR_YELLOW));
+    colorButtonLayout->addChild(yellowButton);
+    
+    ui::Button* greenButton = ui::Button::create();
+    greenButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+    greenButton->setPosition(Vec2(visibleSize.width * 3 * (1.0f/6.0f), 0.0f));
+    greenButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    greenButton->setColor(Color3B(COLOR_GREEN));
+    greenButton->addChild(this->check);
+    colorButtonLayout->addChild(greenButton);
+    
+    
+    ui::Button* blueButton = ui::Button::create();
+    blueButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+    blueButton->setPosition(Vec2(visibleSize.width * 4 * (1.0f/6.0f), 0.0f));
+    blueButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    blueButton->setColor(Color3B(COLOR_BLUE));
+    colorButtonLayout->addChild(blueButton);
+    
+    
+    ui::Button* purpleButton = ui::Button::create();
+    purpleButton->setAnchorPoint(Vec2(0.5f, 0.0f));
+    purpleButton->setPosition(Vec2(visibleSize.width * 5 * (1.0f/6.0f), 0.0f));
+    purpleButton->loadTextures("colorSwatch.png", "colorSwatch.png");
+    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    purpleButton->setColor(Color3B(COLOR_PURPLE));
+    colorButtonLayout->addChild(purpleButton);
+    
+
     
     
 }
