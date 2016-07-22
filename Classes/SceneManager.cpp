@@ -109,7 +109,7 @@ void SceneManager::returnToLobby()
     }
 }
 
-void SceneManager::sendData(const void *data, unsigned long length){
+void SceneManager::sendData(const void *data, double length){
     
     if(drawingCanvas){
         networkingWrapper->sendData(data, length);

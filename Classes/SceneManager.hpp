@@ -23,7 +23,7 @@ public:
     void enterSoloGame();
     void returnToLobby();
     void connectAndEnterNetworkedGame();
-    void sendData(const void *data, unsigned long length);
+    void sendData(const void *data, double length);
 
 private:
     void receivedData(const void* data, unsigned long length) override;

@@ -26,7 +26,7 @@ public:
         networkedSession = value;
     }
     
-    void receivedData(const void* data, unsigned long length);
+    void receivedData(const void* data, double length);
     
     
     

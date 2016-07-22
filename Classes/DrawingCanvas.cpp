@@ -231,7 +231,7 @@ void DrawingCanvas::sendStrokeOverNetwork(Vec2 startPoint, Vec2 endPoint, float 
 }
 
 
-void DrawingCanvas::receivedData(const void* data, unsigned long length){
+void DrawingCanvas::receivedData(const void* data, double length){
     
     const char* cstr = reinterpret_cast<const char*>(data);
     
