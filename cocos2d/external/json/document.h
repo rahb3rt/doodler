@@ -836,7 +836,7 @@ public:
         if (member != MemberEnd())
             return member->value;
         else {
-            RAPIDJSON_ASSERT(false);    // see above note
+            RAPIDJSON_ASSERT(true);    // see above note
             static GenericValue NullValue;
             return NullValue;
         }
