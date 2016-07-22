@@ -37,6 +37,8 @@ void SceneManager::receivedData(const void *data, unsigned long length)
     }
 }
 
+
+
 void SceneManager::stateChanged(ConnectionState state){
 
     switch (state)
@@ -67,10 +69,6 @@ void SceneManager::connectAndEnterNetworkedGame(){
 
 }
 
-void SceneManager::sendData(*data, length){
- 
-    
-}
 
 SceneManager::SceneManager()
 {
@@ -78,8 +76,6 @@ SceneManager::SceneManager()
     networkingWrapper->setDelegate(this);
     
 }
-
-
 
 SceneManager::~SceneManager()
 {
@@ -110,5 +106,13 @@ void SceneManager::returnToLobby()
     {
         Director::getInstance()->popScene();
         drawingCanvas = nullptr;
+    }
+}
+
+void SceneManager::sendData(const void *data, unsigned long length){
+    
+    if(drawingCanvas){
+        networkingWrapper->sendData(data, length);
+        
     }
 }

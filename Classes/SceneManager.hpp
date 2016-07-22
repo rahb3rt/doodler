@@ -31,8 +31,8 @@ private:
     SceneManager();
     ~SceneManager();
     DrawingCanvas* drawingCanvas;
-    void loadDrawingScene(bool networked);
     NetworkingWrapper* networkingWrapper;
+    void loadDrawingScene(bool networked);
     
     
 };
