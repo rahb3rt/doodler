@@ -8,6 +8,8 @@
 
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
+#include "SceneManager.hpp"
+#include "JSONPacker.hpp"
 
 
 using namespace cocos2d;
@@ -76,6 +78,11 @@ void DrawingCanvas::setupTouchHandling()
         
         drawNode->drawSegment(lastTouchPos, touchPos, radius, selectedColor);
         
+        if (this->networkedSession)
+        {
+            this->sendStrokeOverNetwork(lastTouchPos, touchPos, radius, selectedColor);
+        }
+        
         lastRadius = radius;
         lastTouchPos = touchPos;
     };
@@ -99,9 +106,31 @@ void DrawingCanvas::backPressed(cocos2d::Ref *pSender, cocos2d::ui::Widget::Touc
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED)
     {
-        Director::getInstance()->popScene();
+        SceneManager::getInstance()->returnToLobby();
     }
 }
+
+void DrawingCanvas::colorChangePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType){
+    
+    ui::Button* pressedButton = static_cast<ui::Button*>(pSender);
+    
+
+    
+    
+    if (eEventType == ui::Widget::TouchEventType::ENDED){
+        
+        selectedColor = Color4F(pressedButton->getColor());
+        
+        check->retain();
+        check->removeFromParent();
+        
+        pressedButton->addChild(this->check);
+        
+        check->release();
+    }
+    
+}
+
 
 
 void DrawingCanvas::setupMenus(){
@@ -129,8 +158,7 @@ void DrawingCanvas::setupMenus(){
     check = Sprite::create("checkMark.png");
     check->setAnchorPoint(Vec2(0.5f, 0.5f));
     check->setNormalizedPosition(Vec2(0.5f, 0.5f));
-
-    
+ 
     
     Node* colorButtonLayout = Node::create();
     colorButtonLayout->setContentSize(Size(visibleSize.width, visibleSize.height * 0.2f));
@@ -143,7 +171,7 @@ void DrawingCanvas::setupMenus(){
     redButton->setAnchorPoint(Vec2(0.5f, 0.0f));
     redButton->setPosition(Vec2(visibleSize.width * 1 * (1.0f/6.0f), 0.0f));
     redButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    redButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
     redButton->setColor(Color3B(COLOR_RED));
     colorButtonLayout->addChild(redButton);
     
@@ -152,7 +180,7 @@ void DrawingCanvas::setupMenus(){
     yellowButton->setAnchorPoint(Vec2(0.5f, 0.0f));
     yellowButton->setPosition(Vec2(visibleSize.width * 2 * (1.0f/6.0f), 0.0f));
     yellowButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    yellowButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
     yellowButton->setColor(Color3B(COLOR_YELLOW));
     colorButtonLayout->addChild(yellowButton);
     
@@ -160,7 +188,7 @@ void DrawingCanvas::setupMenus(){
     greenButton->setAnchorPoint(Vec2(0.5f, 0.0f));
     greenButton->setPosition(Vec2(visibleSize.width * 3 * (1.0f/6.0f), 0.0f));
     greenButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    greenButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
     greenButton->setColor(Color3B(COLOR_GREEN));
     greenButton->addChild(this->check);
     colorButtonLayout->addChild(greenButton);
@@ -170,7 +198,7 @@ void DrawingCanvas::setupMenus(){
     blueButton->setAnchorPoint(Vec2(0.5f, 0.0f));
     blueButton->setPosition(Vec2(visibleSize.width * 4 * (1.0f/6.0f), 0.0f));
     blueButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    blueButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
     blueButton->setColor(Color3B(COLOR_BLUE));
     colorButtonLayout->addChild(blueButton);
     
@@ -179,15 +207,40 @@ void DrawingCanvas::setupMenus(){
     purpleButton->setAnchorPoint(Vec2(0.5f, 0.0f));
     purpleButton->setPosition(Vec2(visibleSize.width * 5 * (1.0f/6.0f), 0.0f));
     purpleButton->loadTextures("colorSwatch.png", "colorSwatch.png");
-    //colorButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
+    purpleButton->addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this));
     purpleButton->setColor(Color3B(COLOR_PURPLE));
     colorButtonLayout->addChild(purpleButton);
+    
     
 
     
     
 }
 
+void DrawingCanvas::sendStrokeOverNetwork(Vec2 startPoint, Vec2 endPoint, float radius, Color4F color)
+{
+    JSONPacker::LineData lineData;
+    lineData.startPoint = startPoint;
+    lineData.endPoint = endPoint;
+    lineData.radius = radius;
+    lineData.color = color;
+    
+    std::string json = JSONPacker::packLineData(lineData);
+    
+    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+}
+
+
+void DrawingCanvas::receivedData(const void* data, unsigned long length){
+    
+    const char* cstr = reinterpret_cast<const char*>(data);
+    
+    std::string json = std::string(cstr, length);
+    
+    JSONPacker::LineData lineData = JSONPacker::unpackLineDataJSON(json);
+    
+    drawNode->drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
+}
 
 
 

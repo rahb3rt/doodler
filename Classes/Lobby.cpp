@@ -9,6 +9,7 @@
 #include "Lobby.hpp"
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
+#include "SceneManager.hpp"
 
 using namespace cocos2d;
 
@@ -72,7 +73,7 @@ void Lobby::setupUI()
     
     duoButton->loadTextures("duoButton.png", "duoButtonPressed.png");
     
-    duoButton->addTouchEventListener(CC_CALLBACK_2(Lobby::soloPressed, this));
+    duoButton->addTouchEventListener(CC_CALLBACK_2(Lobby::duoPressed, this));
     
     this->addChild(duoButton);
     
@@ -87,12 +88,19 @@ void Lobby::soloPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 
     if (eEventType == ui::Widget::TouchEventType::ENDED)
     {
-        Scene* scene = Scene::create();
         
-        DrawingCanvas* drawingCanvas = DrawingCanvas::create();
-        scene->addChild(drawingCanvas);
+        SceneManager::getInstance()->enterSoloGame();
+    }
+    
+}
+
+void Lobby::duoPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
+{
+    
+    if (eEventType == ui::Widget::TouchEventType::ENDED)
+    {
         
-        Director::getInstance()->pushScene(scene);
+        SceneManager::getInstance()->connectAndEnterNetworkedGame();
     }
     
 }

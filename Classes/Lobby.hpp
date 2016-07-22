@@ -23,6 +23,7 @@ protected:
     void onEnter() override;
     void setupUI();
     void soloPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void duoPressed(cocos2d::Ref* psender, cocos2d::ui::Widget::TouchEventType eEventType);
 
 };
 

@@ -16,6 +16,23 @@ class DrawingCanvas : public cocos2d::Node
 {
 public:
     CREATE_FUNC(DrawingCanvas);
+    bool getNetworkedSession(){
+        
+        return networkedSession;
+    }
+    
+    void setNetworkedSession(bool value){
+        
+        networkedSession = value;
+    }
+    
+    void receivedData(const void* data, unsigned long length);
+    
+    
+    
+
+    
+    
     
 protected:
     cocos2d::DrawNode* drawNode;
@@ -27,11 +44,16 @@ protected:
 
     bool init() override;
     void onEnter() override;
+    bool networkedSession;
     void setupTouchHandling();
     void setupMenus();
     void backPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void clearPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void colorChangePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void sendStrokeOverNetwork(cocos2d::Vec2 startPoint, cocos2d::Vec2 endPoint, float radius, cocos2d::Color4F color);
+    
+    
+    
     
 };
 

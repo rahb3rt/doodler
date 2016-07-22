@@ -68,10 +68,19 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		E13C57A21D41BAEB00F7318F /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E13C579E1D41BAEB00F7318F /* NetworkingWrapper.mm */; };
+		E13C57A31D41BAEB00F7318F /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E13C579E1D41BAEB00F7318F /* NetworkingWrapper.mm */; };
+		E13C57A41D41BAEB00F7318F /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = E13C57A01D41BAEB00F7318F /* NetworkManager.mm */; };
+		E13C57A51D41BAEB00F7318F /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = E13C57A01D41BAEB00F7318F /* NetworkManager.mm */; };
+		E13C57A91D41BBE700F7318F /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13C57A81D41BBE700F7318F /* MultipeerConnectivity.framework */; };
+		E13C57B11D41BDC200F7318F /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57AF1D41BDC200F7318F /* SceneManager.cpp */; };
+		E13C57B21D41BDC200F7318F /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57AF1D41BDC200F7318F /* SceneManager.cpp */; };
+		E13C57B41D41C4B200F7318F /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57B31D41C4B200F7318F /* Lobby.cpp */; };
+		E13C57B51D41C4B200F7318F /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57B31D41C4B200F7318F /* Lobby.cpp */; };
+		E13C57B81D41D5D200F7318F /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57B61D41D5D200F7318F /* JSONPacker.cpp */; };
+		E13C57B91D41D5D200F7318F /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E13C57B61D41D5D200F7318F /* JSONPacker.cpp */; };
 		E1B9B6941D3EF3AB0057F131 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B9B6921D3EF3AB0057F131 /* DrawingCanvas.cpp */; };
 		E1B9B6951D3EF3AB0057F131 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B9B6921D3EF3AB0057F131 /* DrawingCanvas.cpp */; };
-		E1B9B6981D3EFADD0057F131 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B9B6961D3EFADD0057F131 /* Lobby.cpp */; };
-		E1B9B6991D3EFADD0057F131 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B9B6961D3EFADD0057F131 /* Lobby.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -175,9 +184,19 @@
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		E13C578E1D406FB200F7318F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E13C579D1D41BAEB00F7318F /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
+		E13C579E1D41BAEB00F7318F /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
+		E13C579F1D41BAEB00F7318F /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		E13C57A01D41BAEB00F7318F /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		E13C57A11D41BAEB00F7318F /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		E13C57A81D41BBE700F7318F /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		E13C57AF1D41BDC200F7318F /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		E13C57B01D41BDC200F7318F /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
+		E13C57B31D41C4B200F7318F /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
+		E13C57B61D41D5D200F7318F /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
+		E13C57B71D41D5D200F7318F /* JSONPacker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONPacker.hpp; sourceTree = "<group>"; };
 		E1B9B6921D3EF3AB0057F131 /* DrawingCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingCanvas.cpp; sourceTree = "<group>"; };
 		E1B9B6931D3EF3AB0057F131 /* DrawingCanvas.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawingCanvas.hpp; sourceTree = "<group>"; };
-		E1B9B6961D3EFADD0057F131 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
 		E1B9B6971D3EFADD0057F131 /* Lobby.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Lobby.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -188,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13C57A91D41BBE700F7318F /* MultipeerConnectivity.framework in Frameworks */,
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
@@ -278,6 +298,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E13C57A81D41BBE700F7318F /* MultipeerConnectivity.framework */,
 				294D0D631D0D56D500F7F5D4 /* CoreText.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
 				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
@@ -318,10 +339,15 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E1B9B6961D3EFADD0057F131 /* Lobby.cpp */,
+				E13C57A71D41BAFF00F7318F /* Networking */,
+				E13C57B31D41C4B200F7318F /* Lobby.cpp */,
 				E1B9B6971D3EFADD0057F131 /* Lobby.hpp */,
 				E1B9B6921D3EF3AB0057F131 /* DrawingCanvas.cpp */,
 				E1B9B6931D3EF3AB0057F131 /* DrawingCanvas.hpp */,
+				E13C57B61D41D5D200F7318F /* JSONPacker.cpp */,
+				E13C57B71D41D5D200F7318F /* JSONPacker.hpp */,
+				E13C57AF1D41BDC200F7318F /* SceneManager.cpp */,
+				E13C57B01D41BDC200F7318F /* SceneManager.hpp */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -379,6 +405,18 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		E13C57A71D41BAFF00F7318F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E13C579D1D41BAEB00F7318F /* NetworkingWrapper.h */,
+				E13C579E1D41BAEB00F7318F /* NetworkingWrapper.mm */,
+				E13C579F1D41BAEB00F7318F /* NetworkManager.h */,
+				E13C57A01D41BAEB00F7318F /* NetworkManager.mm */,
+				E13C57A11D41BAEB00F7318F /* NetworkManagerDelegate.h */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +463,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 64Y4UNPYQV;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doodler" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -528,10 +571,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				E13C57B81D41D5D200F7318F /* JSONPacker.cpp in Sources */,
+				E13C57A41D41BAEB00F7318F /* NetworkManager.mm in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				E1B9B6941D3EF3AB0057F131 /* DrawingCanvas.cpp in Sources */,
+				E13C57B41D41C4B200F7318F /* Lobby.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				E1B9B6981D3EFADD0057F131 /* Lobby.cpp in Sources */,
+				E13C57B11D41BDC200F7318F /* SceneManager.cpp in Sources */,
+				E13C57A21D41BAEB00F7318F /* NetworkingWrapper.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
@@ -541,11 +588,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13C57B21D41BDC200F7318F /* SceneManager.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				E13C57B91D41D5D200F7318F /* JSONPacker.cpp in Sources */,
+				E13C57B51D41C4B200F7318F /* Lobby.cpp in Sources */,
+				E13C57A31D41BAEB00F7318F /* NetworkingWrapper.mm in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				E1B9B6951D3EF3AB0057F131 /* DrawingCanvas.cpp in Sources */,
+				E13C57A51D41BAEB00F7318F /* NetworkManager.mm in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
-				E1B9B6991D3EFADD0057F131 /* Lobby.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +621,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -590,6 +642,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -603,6 +656,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -621,6 +675,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
